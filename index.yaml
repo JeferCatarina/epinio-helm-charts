@@ -9,4 +9,13 @@ entries:
     urls:
     - https://github.com/JeferCatarina/epinio-helm-charts/raw/main/chart/vault/vault-0.0.1.tgz
     version: 0.0.1
+  grafana:
+  - apiVersion: v2
+    created: "2024-04-29T09:07:51.492218876Z"
+    description: The helm chart for epinio grafana to be deployed by
+    name: grafana
+    type: application
+    urls:
+    - https://github.com/JeferCatarina/epinio-helm-charts/raw/main/chart/grafana/grafana-0.1.0.tgz
+    version: 0.1.0
 generated: "2024-04-29T09:07:51.492218876Z"
