@@ -11,6 +11,14 @@ entries:
     version: 0.0.1
   grafana:
   - apiVersion: v2
+    created: "2024-05-17T09:07:51.492218876Z"
+    description: The helm chart for epinio grafana to be deployed by
+    name: grafana
+    type: application
+    urls:
+    - https://github.com/JeferCatarina/epinio-helm-charts/raw/main/chart/grafana/grafana-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
     created: "2024-04-29T09:07:51.492218876Z"
     description: The helm chart for epinio grafana to be deployed by
     name: grafana
