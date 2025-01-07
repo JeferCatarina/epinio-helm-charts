@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "pocketbase.fullname" . }}
+  labels:
+    {{- include "pocketbase.labels" . | nindent 4 }}
+spec:
+  serviceName: {{ include "pocketbase.fullname" . }}
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "pocketbase.labels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "pocketbase.labels" . | nindent 8 }}
+    spec:
+      serviceAccount: {{ .Release.Namespace }}
+      serviceAccountName: {{ .Release.Namespace }}
+      automountServiceAccountToken: false
+      containers:
+      - name: {{ include "pocketbase.fullname" . }}
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        volumeMounts:
+        - name: {{ include "pocketbase.fullname" . }}
+          mountPath: /pb/pb_data
+        envFrom:
+        - secretRef:
+            name: {{ include "pocketbase.fullname" . }}
+        image: {{ .Values.image.address }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        {{- with .Values.resources }}
+        resources:
+          {{- toYaml . | nindent 10 }}
+        {{- end}}
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+  volumeClaimTemplates:
+  - metadata:
+      name: {{ include "pocketbase.fullname" . }}
+    spec: 
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: {{ .Values.storage.size }}

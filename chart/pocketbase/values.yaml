@@ -1,0 +1,10 @@
+epinio: {}
+
+domain: domain.tld
+image:
+  address: pocketbase/pocketbase:v1.20.0
+  pullPolicy: IfNotPresent
+storage:
+  size: 1Gi
+superuserEmail: admin@domain.tld
+replicaCount: 1
