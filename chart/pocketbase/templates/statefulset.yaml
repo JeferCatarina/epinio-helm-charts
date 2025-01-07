@@ -51,6 +51,8 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Delete
   volumeClaimTemplates:
   - metadata:
       name: {{ include "pocketbase.fullname" . }}
