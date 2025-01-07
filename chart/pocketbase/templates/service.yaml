@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    {{- include "pocketbase.labels" . | nindent 4 }}
+  name: {{ include "pocketbase.fullname" . }}
+spec:
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      name: web
+  selector:
+    {{- include "pocketbase.labels" . | nindent 4 }}
+  type: ClusterIP
