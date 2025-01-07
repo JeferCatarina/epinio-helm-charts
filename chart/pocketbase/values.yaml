@@ -8,3 +8,5 @@ storage:
   size: 1Gi
 superuserEmail: admin@domain.tld
 replicaCount: 1
+ingress:
+  annotations: {}
