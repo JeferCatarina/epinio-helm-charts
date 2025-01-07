@@ -1,5 +1,16 @@
 apiVersion: v1
 entries:
+  pocketbase:
+  - apiVersion: v2
+    created: "2025-01-07T14:41:53.189504-03:00"
+    description: A Helm chart for deploying PocketBase using Epinio
+    digest: dcd3103488861683069d9c31334c437c78d11deb9d25835a01b6cf0b8034ba8f
+    icon: https://images.squarespace-cdn.com/content/v1/5cafa5e792441be86e7ad9ac/1583268187688-QVAEP2CYJ245MHG1CABX/stack-io-full-logo-light.png
+    name: pocketbase
+    type: application
+    urls:
+    - https://github.com/vmfarms/epinio-helm-charts/raw/main/chart/pocketbase/pocketbase-0.1.0.tgz
+    version: 0.1.0
   cicd:
   - apiVersion: v2
     appVersion: 0.0.10
