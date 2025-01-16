@@ -11,7 +11,7 @@ metadata:
   namespace:  {{ .Release.Namespace | quote }}
 spec:
   ports:
-    {{- if and .Values.userConfig.enableSideproProxy .Values.chartConfig.proxyImage }}
+    {{- if .Values.chartConfig.proxyImage }}
     - port: 8080
       protocol: TCP
       targetPort: 28888
