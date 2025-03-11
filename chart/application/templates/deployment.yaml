@@ -95,7 +95,7 @@ spec:
         - name: MONGODB_HOSTNAME
           value: "{{ trimSuffix "-standalone" . }}"
         - name: MONGODB_DATABASE_URL
-          value: "mongodb://admin:$(MONGODB_ROOT_PASSWORD)@$(MONGODB_HOSTNAME):27017/default"
+          value: "mongodb://root:$(MONGODB_ROOT_PASSWORD)@$(MONGODB_HOSTNAME):27017/default"
         {{- end }}
         {{- if (hasSuffix "-mongodb-replication" .) }}
         - name: MONGODB_MASTER_HOSTNAME
